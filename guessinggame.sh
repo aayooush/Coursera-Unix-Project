@@ -1,7 +1,11 @@
+#!/usr/bin/env bash
+
 function guess {
 	echo "Enter Guess: "
 	read entry
-	answer=$(ls | wc -l)
+
+	answer=$(ls -l | grep "^-" | wc -l)
+
 	while [[ $entry -ne $answer ]]
 	do
 		if [[ $entry -lt $answer ]]
